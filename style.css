@@ -1,170 +1,287 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+le>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: 'Georgia', serif;
-    overflow: hidden;
-    background: linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #1a0000 100%);
-    color: white;
-}
+        body {
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #1a0000 100%);
+            color: white;
+        }
 
-.page {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    pointer-events: none;
-}
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            pointer-events: none;
+        }
 
-.page.active {
-    opacity: 1;
-    pointer-events: all;
-}
+        .page.active {
+            opacity: 1;
+            pointer-events: all;
+        }
 
-.content {
-    max-width: 800px;
-    text-align: center;
-    z-index: 10;
-    position: relative;
-}
+        .content {
+            max-width: 800px;
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
 
-h1 {
-    font-size: 3.5em;
-    margin-bottom: 30px;
-    color: #ff6b9d;
-    text-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
-    animation: glow 2s ease-in-out infinite alternate;
-}
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ff6b9d;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
 
-@keyframes glow {
-    from { text-shadow: 0 0 20px rgba(255, 107, 157, 0.5); }
-    to { text-shadow: 0 0 30px rgba(255, 107, 157, 0.8), 0 0 40px rgba(255, 107, 157, 0.4); }
-}
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(255, 107, 157, 0.5); }
+            to { text-shadow: 0 0 30px rgba(255, 107, 157, 0.8), 0 0 40px rgba(255, 107, 157, 0.4); }
+        }
 
-p {
-    font-size: 1.4em;
-    line-height: 1.8;
-    margin-bottom: 25px;
-    color: #ffccd5;
-}
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #ffccd5;
+        }
 
-.button {
-    padding: 15px 40px;
-    font-size: 1.2em;
-    background: linear-gradient(135deg, #ff1744 0%, #c2185b 100%);
-    border: none;
-    border-radius: 50px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 25px rgba(255, 23, 68, 0.4);
-    font-family: 'Georgia', serif;
-    margin-top: 20px;
-}
+        .button {
+            padding: 12px 30px;
+            font-size: 1em;
+            background: linear-gradient(135deg, #ff1744 0%, #c2185b 100%);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 25px rgba(255, 23, 68, 0.4);
+            font-family: 'Georgia', serif;
+            margin-top: 15px;
+        }
 
-.button:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 35px rgba(255, 23, 68, 0.6);
-}
+        .button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 35px rgba(255, 23, 68, 0.6);
+        }
 
-/* Canvas pour les animations */
-#hearts-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
-}
+        /* Responsive pour mobile */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 15px;
+            }
 
-/* Animation spéciale pour la question finale */
-.final-question {
-    font-size: 4em;
-    color: #ff1744;
-    animation: pulse 1.5s ease-in-out infinite;
-    margin-top: 40px;
-}
+            p {
+                font-size: 0.95em;
+                line-height: 1.5;
+                margin-bottom: 12px;
+            }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
+            .button {
+                padding: 10px 25px;
+                font-size: 0.9em;
+                margin-top: 10px;
+            }
 
-/* Bouton audio */
-.audio-control {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
-    background: rgba(255, 23, 68, 0.8);
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    font-size: 1.5em;
-    color: white;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
+            .content {
+                padding: 0 10px;
+            }
+        }
 
-.audio-control:hover {
-    transform: scale(1.1);
-    background: rgba(255, 23, 68, 1);
-}
+        /* Responsive spécifique pour iPhone et petits écrans */
+        @media (max-width: 430px) {
+            h1 {
+                font-size: 1.5em;
+                margin-bottom: 12px;
+            }
 
-/* Bouton langue */
-.language-control {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 100;
-    background: rgba(255, 23, 68, 0.8);
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    cursor: pointer;
-    font-size: 2em;
-    color: white;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+            p {
+                font-size: 0.85em;
+                line-height: 1.4;
+                margin-bottom: 10px;
+            }
 
-.language-control:hover {
-    transform: scale(1.1);
-    background: rgba(255, 23, 68, 1);
-}
+            .button {
+                padding: 8px 20px;
+                font-size: 0.85em;
+                margin-top: 8px;
+            }
 
-/* Compteur de pages */
-.page-counter {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;
-    color: #ffccd5;
-    font-size: 0.9em;
-}
+            .page {
+                padding: 20px 15px;
+            }
 
-.fade-in {
-    animation: fadeIn 1.5s ease-in;
-}
+            .content {
+                max-width: 100%;
+                padding: 0 5px;
+            }
+        }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        /* Canvas pour les animations */
+        #hearts-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Animation spéciale pour la question finale */
+        .final-question {
+            font-size: 3em;
+            color: #ff1744;
+            animation: pulse 1.5s ease-in-out infinite;
+            margin-top: 40px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Bouton audio */
+        .audio-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+            background: rgba(255, 23, 68, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .audio-control:hover {
+            transform: scale(1.1);
+            background: rgba(255, 23, 68, 1);
+        }
+
+        /* Bouton langue */
+        .language-control {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background: rgba(255, 23, 68, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            font-size: 2em;
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .language-control:hover {
+            transform: scale(1.1);
+            background: rgba(255, 23, 68, 1);
+        }
+
+        /* Responsive pour les boutons sur mobile */
+        @media (max-width: 768px) {
+            .audio-control,
+            .language-control {
+                width: 50px;
+                height: 50px;
+                font-size: 1.3em;
+                top: 15px;
+            }
+
+            .audio-control {
+                right: 15px;
+            }
+
+            .language-control {
+                left: 15px;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .audio-control,
+            .language-control {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2em;
+                top: 10px;
+            }
+
+            .audio-control {
+                right: 10px;
+            }
+
+            .language-control {
+                left: 10px;
+            }
+        }
+
+        /* Compteur de pages */
+        .page-counter {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            color: #ffccd5;
+            font-size: 0.9em;
+        }
+
+        /* Responsive pour la question finale et le compteur */
+        @media (max-width: 768px) {
+            .final-question {
+                font-size: 2.2em;
+                margin-top: 30px;
+            }
+
+            .page-counter {
+                font-size: 0.8em;
+                bottom: 15px;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .final-question {
+                font-size: 1.6em;
+                margin-top: 20px;
+                padding: 0 10px;
+            }
+
+            .page-counter {
+                font-size: 0.75em;
+                bottom: 10px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
