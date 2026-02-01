@@ -1,2 +1,0 @@
-# julesdelobelle.github.io
-valentines
