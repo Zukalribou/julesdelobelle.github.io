@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour toi Mia, mon cœur ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="hearts-canvas"></canvas>
+    
+    <button class="language-control" id="languageToggle" title="Changer la langue">🇫🇷</button>
+    <button class="audio-control" id="audioToggle" title="Musique">🎵</button>
+    <div class="page-counter" id="pageCounter"></div>
+
+    <!-- Page 0: Introduction -->
+    <div class="page active" id="page0">
+        <div class="content fade-in">
+            <h1>Pour toi Mia, mon cœur ❤️</h1>
+            <p>Hey mon cœur, je sais que je ne suis pas parfait, notamment pour communiquer... mais sache que mon amour pour toi n'a jamais cessé de grandir.</p>
+            <p>C'est pourquoi j'ai créé ce petit site pour te montrer à quel point tu comptes pour moi et pour qu'on puisse revivre ensemble les moments magiques de pur bonheur passés ensemble...</p>
+            <button class="button" onclick="nextPage()">Commencer ✨</button>
+        </div>
+    </div>
+
+    <!-- Page 1: Rencontre -->
+    <div class="page" id="page1">
+        <div class="content fade-in">
+            <h1>Autour de Noël et du Nouvel An 🎄</h1>
+            <p>C'était une période magique, festive et joyeuse...</p>
+            <p>Et c'est là que nos chemins se sont croisés pour la première fois. Moi qui pensait passer une année déjà magnifique, je vennais d'être subjugué par ta personne. Ce fut moment parfait, marquant le début de quelque chose de merveilleux.</p>
+            <button class="button" onclick="nextPage()">Continuer →</button>
+        </div>
+    </div>
+
+    <!-- Page 2: Les appels -->
+    <div class="page" id="page2">
+        <div class="content fade-in">
+            <h1>Des appels interminables 📱</h1>
+            <p>Ces conversations qui duraient des heures et des heures...</p>
+            <p>Passionnantes, enrichissantes, où chaque minute passée à t'écouter était un cadeau. Le temps s'arrêtait et rien d'autre n'avait d'importance.</p>
+            <button class="button" onclick="nextPage()">Continuer →</button>
+        </div>
+    </div>
+
+    <!-- Page 3: Projets -->
+    <div class="page" id="page3">
+        <div class="content fade-in">
+            <h1>Nos rêves d'évasion 🌊</h1>
+            <p>On se projetait déjà dans le futur...</p>
+            <p>Imaginant nos prochains voyages et notre première réelle rencontre en France, au bord de la mer azure, le vent dans les cheveux et l'horizon devant nous. Construire ensemble des moments inoubliables.</p>
+            <button class="button" onclick="nextPage()">Continuer →</button>
+        </div>
+    </div>
+
+    <!-- Page 4: Sa voix -->
+    <div class="page" id="page4">
+        <div class="content fade-in">
+            <h1>Ta voix, ta personnalité 💫</h1>
+            <p>Dès que je t'ai entendue, j'ai su...</p>
+            <p>Par ta douce voix et ta personnalité unique, j'ai compris que je ne pourrais jamais me passer de toi. Tu es devenue essentielle à mon bonheur et j'aimerais rester à tes côtés pour toujours.</p>
+            <button class="button" onclick="nextPage()">Continuer →</button>
+        </div>
+    </div>
+
+    <!-- Page 5: Premier regard -->
+    <div class="page" id="page5">
+        <div class="content fade-in">
+            <h1>La première fois que je t'ai vue 😍</h1>
+            <p>Ce moment reste gravé dans ma mémoire...</p>
+            <p>Je ne pouvais plus détourner le regard. Toute ta beauté me laisse perpétuellement bouche bée, et depuis, je n'ai d'yeux que pour toi.</p>
+            <button class="button" onclick="nextPage()">Continuer →</button>
+        </div>
+    </div>
+
+    <!-- Page 6: Question finale -->
+    <div class="page" id="page6">
+        <div class="content fade-in">
+            <h1 class="final-question">Mia, will you be my Valentine? 💝</h1>
+        </div>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="JustTheTwoOfUs.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
